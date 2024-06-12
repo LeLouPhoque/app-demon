@@ -1,19 +1,11 @@
-<header class="text-gray-600 body-font">
+<header class="text-gray-600 body-font" xmlns="http://www.w3.org/1999/html">
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <a (click)="inc()" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
-                stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-purple-500 rounded-full"
-                viewBox="0 0 24 24">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-            </svg>
-            <span class="ml-3 text-xl">App Démo - {{ count }}</span>
+          <div class="icon electric">
+            <img src="https://imgs.search.brave.com/D89TNlNXZpJK7N7B_ipWQ76GqrDdK7d42BwHC_ZaFDA/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL2ltYWdlcy81/ODBiNTdmY2Q5OTk2/ZTI0YmM0M2MzMjUu/cG5n" width="55" height="55"/>
+          </div>
         </a>
         <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-            <!-- @for(link of links; track $index) {
-                @if(link !== 'Admin') {
-                    <a class="mr-5 hover:text-gray-900">{{ link }} - {{ $index }}</a>
-                }
-            } -->
             <a routerLink="/home" class="mr-5 hover:text-gray-900">Home</a>
             <a routerLink="/blog" class="mr-5 hover:text-gray-900">Blog</a>
           <a routerLink="/generations" class="mr-5 hover:text-gray-900">Generations</a>

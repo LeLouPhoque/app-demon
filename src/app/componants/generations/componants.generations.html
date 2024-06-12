@@ -2,16 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Les Générations de Pokémon</title>
+  <!-- Ajouter le lien vers Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <div>
-    <h2>Les Générations de Pokémon</h2>
-    <ul>
-      <li *ngFor="let generation of generations">
-        {{ generation }}
-      </li>
-    </ul>
-  </div>
+<body class="bg-gray-100 text-gray-800">
+<div class="container mx-auto py-4">
+  <h2 class="text-2xl font-bold mb-4">Les Générations de Pokémon</h2>
+  <ul>
+    <!-- Utiliser *ngFor pour itérer sur les générations -->
+    <li *ngFor="let generation of generations" class="mb-2">
+      <!-- Afficher le nom de la génération avec un style plus sobre -->
+      <span class="px-3 py-1 bg-gray-200 text-gray-800 rounded-lg">{{ generation.name }}</span>
+    </li>
+  </ul>
+</div>
 </body>
 </html>

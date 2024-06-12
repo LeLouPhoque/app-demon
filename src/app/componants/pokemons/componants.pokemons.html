@@ -2,21 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Liste des Pokémon</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-<div>
-  <h2>Liste des Pokémon</h2>
+<body class="bg-gray-100 text-gray-800">
+<div class="container mx-auto py-4">
+  <h2 class="text-2xl font-bold mb-4">Liste des Pokémon</h2>
   <ul>
-    <li *ngFor="let pokemon of pokemons">
-      <strong>{{ pokemon.id }} : {{ pokemon.name }}</strong><br>
-      Description : {{ pokemon.description }}<br>
-      Taille : {{ pokemon.height ? pokemon.height : 'N/A' }}<br>
-      Poids : {{ pokemon.weight ? pokemon.weight : 'N/A' }}<br>
+    <li *ngFor="let pokemon of pokemons" class="mb-4">
+      <div class="border rounded-lg p-4">
+        <strong class="text-lg">{{ pokemon.id }} : {{ pokemon.name }}</strong><br>
+        <p class="mt-2"><span class="font-semibold">Description :</span> {{ pokemon.description }}</p>
+        <p><span class="font-semibold">Taille :</span> {{ pokemon.height ? pokemon.height : 'N/A' }}</p>
+        <p><span class="font-semibold">Poids :</span> {{ pokemon.weight ? pokemon.weight : 'N/A' }}</p>
+        <p><span class="font-semibold">Génération :</span> {{ getGenerationName(pokemon.generationId) }}</p>
+      </div>
     </li>
   </ul>
 </div>
-
-
 </body>
 </html>
