@@ -5,20 +5,47 @@
   <title>Liste des Pokémon</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 text-gray-800">
-<div class="container mx-auto py-4">
-  <h2 class="text-2xl font-bold mb-4">Liste des Pokémon</h2>
-  <ul>
-    <li *ngFor="let pokemon of pokemons" class="mb-4">
-      <div class="border rounded-lg p-4">
-        <strong class="text-lg">{{ pokemon.id }} : {{ pokemon.name }}</strong><br>
-        <p class="mt-2"><span class="font-semibold">Description :</span> {{ pokemon.description }}</p>
-        <p><span class="font-semibold">Taille :</span> {{ pokemon.height ? pokemon.height : 'N/A' }}</p>
-        <p><span class="font-semibold">Poids :</span> {{ pokemon.weight ? pokemon.weight : 'N/A' }}</p>
-        <p><span class="font-semibold">Génération :</span> {{ getGenerationName(pokemon.generationId) }}</p>
+<body class="bg-yellow-100 text-gray-800 min-h-screen">
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold mb-4">Liste des Pokémon</h1>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+    <div *ngFor="let pokemon of pokemons" class="bg-white shadow-md rounded-lg p-6 mb-4">
+      <div class="flex items-center mb-4">
+        <img [src]="pokemon.image" [alt]="pokemon.name" class="w-20 h-20 mr-4">
+        <div>
+          <h2 class="text-2xl font-bold">{{ pokemon.name }}</h2>
+        </div>
       </div>
-    </li>
-  </ul>
+
+      <div class="mb-4">
+        <p class="text-lg font-bold">Stats:</p>
+        <ul class="ml-4">
+          <li>HP: {{ pokemon.stats.HP }}</li>
+          <li>Attack: {{ pokemon.stats.attack }}</li>
+          <li>Defense: {{ pokemon.stats.defense }}</li>
+          <li>Special Attack: {{ pokemon.stats.special_attack }}</li>
+          <li>Special Defense: {{ pokemon.stats.special_defense }}</li>
+          <li>Speed: {{ pokemon.stats.speed }}</li>
+        </ul>
+      </div>
+
+      <div class="mb-4">
+        <p class="text-lg font-bold">Types:</p>
+        <ul class="ml-4 flex">
+          <li *ngFor="let type of pokemon.apiTypes" class="flex items-center mr-4">
+            <img [src]="type.image" [alt]="type.name" class="w-6 h-6 mr-2">
+            {{ type.name }}
+          </li>
+        </ul>
+      </div>
+
+      <!-- Button for navigation -->
+      <a [routerLink]="['/pokemon-detail', pokemon.id]" class="bg-blue-500 text-white py-2 px-4 rounded block text-center">
+        View Details
+      </a>
+    </div>
+  </div>
 </div>
 </body>
 </html>

@@ -1,16 +1,18 @@
-<header class="text-gray-600 body-font" xmlns="http://www.w3.org/1999/html">
-    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <a (click)="inc()" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-          <div class="icon electric">
-            <img src="https://imgs.search.brave.com/D89TNlNXZpJK7N7B_ipWQ76GqrDdK7d42BwHC_ZaFDA/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL2ltYWdlcy81/ODBiNTdmY2Q5OTk2/ZTI0YmM0M2MzMjUu/cG5n" width="55" height="55"/>
-          </div>
-        </a>
-        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-            <a routerLink="/home" class="mr-5 hover:text-gray-900">Home</a>
-            <a routerLink="/blog" class="mr-5 hover:text-gray-900">Blog</a>
-          <a routerLink="/generations" class="mr-5 hover:text-gray-900">Generations</a>
-          <a routerLink="/pokemons" class="mr-5 hover:text-gray-900">Pokemons</a>
-        </nav>
+<header class="text-gray-600 body-font">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <a  class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+      <div class="icon electric">
+        <img src="https://imgs.search.brave.com/D89TNlNXZpJK7N7B_ipWQ76GqrDdK7d42BwHC_ZaFDA/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9hc3Nl/dHMuc3RpY2twbmcu/Y29tL2ltYWdlcy81/ODBiNTdmY2Q5OTk2/ZTI0YmM0M2MzMjUu/cG5n" width="55" height="55"/>
+      </div>
+    </a>
+    <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+      <a routerLink="/generations" class="mr-5 hover:text-gray-900 text-lg font-bold">Generations</a>
+      <a routerLink="/pokemons" class="mr-5 hover:text-gray-900 text-lg font-bold">Pokemons</a>
+    </nav>
 
-    </div>
+    <!-- Example of a return button -->
+    <button (click)="goBack()" class="ml-auto bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded">
+      Return
+    </button>
+  </div>
 </header>

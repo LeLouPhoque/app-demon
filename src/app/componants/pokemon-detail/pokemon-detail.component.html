@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Détail du Pokémon</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .pokemon-card {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .pokemon-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    }
+    .pokemon-card img {
+      transition: transform 0.3s;
+    }
+    .pokemon-card img:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body class="bg-yellow-100 text-gray-800 min-h-screen">
+<div *ngIf="selectedPokemon" class="container mx-auto p-4 bg-white shadow-lg rounded-lg mt-8 pokemon-card">
+  <h2 class="text-3xl font-bold text-center mb-4 text-yellow-300">{{ selectedPokemon.name }}</h2>
+  <div class="flex justify-center mb-4">
+    <img [src]="selectedPokemon.image" [alt]="selectedPokemon.name" class="mb-4 w-48 h-48 rounded-full shadow-md">
+  </div>
+
+  <div class="text-center mb-4">
+    <p class="font-semibold text-xl text-gray-700">Stats:</p>
+    <ul class="list-none p-0 inline-block text-gray-600 text-lg">
+      <li class="py-1"><span class="font-bold">HP:</span> {{ selectedPokemon.stats.HP }}</li>
+      <li class="py-1"><span class="font-bold">Attack:</span> {{ selectedPokemon.stats.attack }}</li>
+      <li class="py-1"><span class="font-bold">Defense:</span> {{ selectedPokemon.stats.defense }}</li>
+      <li class="py-1"><span class="font-bold">Special Attack:</span> {{ selectedPokemon.stats.special_attack }}</li>
+      <li class="py-1"><span class="font-bold">Special Defense:</span> {{ selectedPokemon.stats.special_defense }}</li>
+      <li class="py-1"><span class="font-bold">Speed:</span> {{ selectedPokemon.stats.speed }}</li>
+    </ul>
+  </div>
+
+  <div class="text-center mb-4">
+    <p class="font-semibold text-xl text-gray-700">Types:</p>
+    <ul class="flex justify-center space-x-4 text-gray-600 text-lg">
+      <li *ngFor="let type of selectedPokemon.apiTypes" class="flex items-center space-x-2">
+        <img [src]="type.image" [alt]="type.name" class="inline-block w-8 h-8"> <span>{{ type.name }}</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="text-center">
+    <p class="font-semibold text-xl text-gray-700">Resistances:</p>
+    <ul class="list-none p-0 inline-block text-gray-600 text-lg">
+      <li *ngFor="let resistance of selectedPokemon.apiResistances" class="py-1">
+        <span class="font-bold">{{ resistance.name }}:</span> {{ resistance.damage_relation }} ({{ resistance.damage_multiplier }})
+      </li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

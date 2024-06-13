@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-header',
@@ -9,10 +11,10 @@ import { RouterLink } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  // @Input() public item : string
-  public count : number = 0
 
-  inc() {
-    this.count++
+  constructor(private location: Location) { }
+
+  goBack() {
+    this.location.back();
   }
 }
